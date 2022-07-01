@@ -1,11 +1,20 @@
-const express = require('express')
-require('./config/connexion.js');
+const express = require('express');
+const getLodge = require('./models/Lodges.js');
+// const Lodges = require('./models/Lodges.js');
+require('./config/connexion.js')()
 
 const port = 3001
-
 const app = express();
 
-app.get('/', (req, res) =>{
+
+app.get('/', async (req, res) =>{
+    const result = await getLodge()
+    console.log("in app.get, in app.js :",result);
+    res.send(result)
+
+})
+
+app.get('/lodge/:id', (req, res) =>{
 
 })
 
@@ -23,7 +32,7 @@ app.put('/host/update-lodge/:id', (req, res) =>{
 
 app.delete('/host/delete-lodge/:id', (req, res) =>{
 
-    
+
     res.send('correctly deleted')
 })
 

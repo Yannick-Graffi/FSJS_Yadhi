@@ -9,5 +9,6 @@ function toConnect() {
     } catch (err) {
         console.error(err.message);
     }
-    
 }
+
+module.exports = toConnect
