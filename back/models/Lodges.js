@@ -20,7 +20,19 @@ const LodgeSchema = mongoose.Schema({
 const Lodges = mongoose.model('Lodges', LodgeSchema)
 
 async function getLodge() {
-      return await Lodges.find()
+    return await Lodges.find()
 }
 
-module.exports = getLodge
+function addLodge(title, description, price) {
+    return new Lodges({
+        title,
+        description,
+        price,
+    })
+}
+
+async function saveLodge(lodge) {
+    return await lodge.save()    
+}
+
+module.exports = {getLodge, addLodge, saveLodge}

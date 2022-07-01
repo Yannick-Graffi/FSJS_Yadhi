@@ -1,27 +1,29 @@
 const express = require('express');
-const getLodge = require('./models/Lodges.js');
-// const Lodges = require('./models/Lodges.js');
+const {getLodge, addLodge, saveLodge} = require('./models/Lodges.js');
+const Lodges = require ('./models/Lodges')
 require('./config/connexion.js')()
 
 const port = 3001
 const app = express();
+
+app.use(express.json());
 
 
 app.get('/', async (req, res) =>{
     const result = await getLodge()
     console.log("in app.get, in app.js :",result);
     res.send(result)
-
 })
 
 app.get('/lodge/:id', (req, res) =>{
 
 })
 
-app.post('/host/add-lodge', (req, res) =>{
-
-
-    res.status(201).send('correctly created')
+app.post('/host/add-lodge', async (req, res) =>{
+    const {title, description, price}= req.body
+    const result = addLodge(title, description, price)
+    await saveLodge(result)
+    res.status(201).send(`correctly created ${result}`)
 })
 
 app.put('/host/update-lodge/:id', (req, res) =>{
