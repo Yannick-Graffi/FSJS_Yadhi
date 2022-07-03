@@ -14,16 +14,11 @@ function Publication() {
         getLodge()
     }, [])
 
-    // async function handleDelete(id){
-    //     await axios.delete(`http://localhost:3001/lodges/${id}`)
-    //     const filteredLodges = lodges.filter(lodge => lodge.id !== id)
-    //     console.log("filteredLodges");
-    // }
-    function handleDelete(id) {
-        console.log(`Ceci est un test ${id}`);
-        
+    async function handleDelete(id){
+        await axios.delete(`http://localhost:3001/lodges/${id}`)
+        const filteredLodges = lodges.filter(lodge => lodge.id !== id)
+        console.log("filteredLodges");
     }
-
 
     return ( 
         <div className="home-container">
