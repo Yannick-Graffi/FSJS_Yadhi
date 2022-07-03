@@ -10,7 +10,6 @@ function Navbar() {
         </div>
         <div className="pages">
             <Link to="/"style={{marginRight:"10px"}}>Homepage</Link> 
-            <Link to="/Logement" style={{marginRight:"10px"}}>Logements</Link>
             <Link to="/Publication" >Publication</Link>
         </div>
       </nav>

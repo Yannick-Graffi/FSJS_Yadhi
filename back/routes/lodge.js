@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const Lodge = require('../models/Lodge')
 
+// Getting all the lodges to rent
 router.get('/', async (req, res) =>{
     try {
         const result = await Lodge.find()
@@ -11,6 +12,8 @@ router.get('/', async (req, res) =>{
     }
 })
 
+
+// Getting one particular lodge infos
 router.get('/:id', async (req, res) =>{
     try {
         const result = await Lodge.findById(req.params.id)    
@@ -20,6 +23,7 @@ router.get('/:id', async (req, res) =>{
     }
 })
 
+// Add a new lodge
 router.post('/', async (req, res) =>{
     try {
         const {title, description, price}= req.body
@@ -35,6 +39,7 @@ router.post('/', async (req, res) =>{
     }
 })
 
+// Update an existing lodge
 router.put('/:id', async (req, res) =>{
     try {
         const id = req.params.id
@@ -45,9 +50,9 @@ router.put('/:id', async (req, res) =>{
     } catch (err) {
         console.error(err.message);
     }
-
 })
 
+// Remove an existing lodge
 router.delete('/:id', async (req, res) =>{
     try {
         const id = req.params.id
@@ -56,7 +61,6 @@ router.delete('/:id', async (req, res) =>{
     } catch (err) {
         console.log(err.message);
     }
-
 })
 
 module.exports = router
