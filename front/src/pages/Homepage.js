@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Homepage.css';
 import axios from 'axios'
 import Preview from '../components/Preview/Preview';
+import Logo from '../Logo2.png';
 
 function Homepage() {
     const [lodges,setLodges] = useState([])
@@ -17,7 +18,8 @@ function Homepage() {
 
     return ( 
         <div className="home-container">
-            <h2>Accueil</h2>
+            <img src={Logo}/>
+            <h2>Location de logements temporaire entre particuliers</h2>
             {[lodges.map(
                 (lodge) => (
                     <Preview 

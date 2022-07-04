@@ -3,7 +3,7 @@ import './HostPreview.css'
 
 function HostPreview({lodge, onDelete, onUpdate}) {
     return ( 
-        <div>
+        <div className='Appart'>
             {/* <img src="" alt=''/> */}
             <h2>{lodge.title}</h2>
             <p>{lodge.description}</p>
