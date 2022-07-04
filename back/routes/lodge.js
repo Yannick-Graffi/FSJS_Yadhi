@@ -33,7 +33,7 @@ router.post('/', async (req, res) =>{
                 price,
             })
         await lodge.save()  
-        res.status(201).send({message:'correctly created',data: lodge})        
+        res.status(201).send({message:'correctly created', data:lodge})        
     } catch (err) {
         console.error(err.message);
     }
@@ -43,10 +43,10 @@ router.post('/', async (req, res) =>{
 router.put('/:id', async (req, res) =>{
     try {
         const id = req.params.id
-        await Lodge.findByIdAndUpdate(id, req.body, {
+        const result = await Lodge.findByIdAndUpdate(id, req.body, {
             new:true,
         })
-        res.send('Lodge correctly updated')            
+        res.send({message:'Lodge correctly updated', data:result})            
     } catch (err) {
         console.error(err.message);
     }

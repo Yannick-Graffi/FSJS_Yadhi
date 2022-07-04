@@ -7,7 +7,7 @@ const LodgeSchema = mongoose.Schema({
     },
     description:{
         type: String,
-        minLength:20,
+        // minLength:20,
         maxLength:400
     },
     price: Number,
